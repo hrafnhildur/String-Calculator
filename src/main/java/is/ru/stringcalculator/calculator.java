@@ -9,7 +9,7 @@ public class calculator {
 		else if(string.contains(",")) {
 			return sum(splitNumbers(string));
 		}
-		return String[0];
+		return Integer.parseInt(string);
 	}
 
 	private static int toInt(String number){
