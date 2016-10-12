@@ -7,7 +7,8 @@ public class calculator {
 			return 0;
 		}
 		else if(string.contains(",")) {
-			return sum(splitNumbers(string));
+			String[] numbers = (splitNumbers(string));
+			return sum(numbers);
 		}
 		return Integer.parseInt(string);
 	}
