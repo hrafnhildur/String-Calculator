@@ -23,4 +23,14 @@ public class calculatorTest {
 	public void testMultiNumbers() {
 		assertEquals(45, calculator.add("1,2,3,4,5,6,7,8,9"));
 	}
+
+	@Test
+	public void testNewLineSplitter() {
+		assertEquals(6, calculator.add("1\n2\n3"));
+	}
+
+	@Test
+	public void testMultiSplitter() {
+		assertEquals(6, calculator.add("1\n2,3"));
+	}
 }

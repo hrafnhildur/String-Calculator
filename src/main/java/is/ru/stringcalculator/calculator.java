@@ -7,7 +7,11 @@ public class calculator {
 			return 0;
 		}
 		else if(string.contains(",")) {
-			String[] numbers = (splitNumbers(string));
+			String[] numbers = (splitNumbers(string, ","));
+			return sum(numbers);
+		}
+		else if(string.contains("\n")) {
+			String[] numbers = (splitNumbers(string, "\n"));
 			return sum(numbers);
 		}
 		return Integer.parseInt(string);
@@ -17,8 +21,8 @@ public class calculator {
 		return Integer.parseInt(number);
 	}
 
-	public static String[] splitNumbers(String numbers) {
-		return numbers.split(",");
+	public static String[] splitNumbers(String numbers, String splitter) {
+		return numbers.split(splitter);
 	}
 
 	private static int sum(String[] numbers){
