@@ -33,4 +33,5 @@ public class calculatorTest {
 	public void testMultiSplitter() {
 		assertEquals(6, calculator.add("1\n2,3"));
 	}
+
 }

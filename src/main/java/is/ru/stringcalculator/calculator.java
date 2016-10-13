@@ -6,13 +6,12 @@ public class calculator {
 		if(string.equals(" ")) {
 			return 0;
 		}
-		else if(string.contains(",")) {
-			String[] numbers = (splitNumbers(string, ","));
-			return sum(numbers);
-		}
-		else if(string.contains("\n")) {
-			String[] numbers = (splitNumbers(string, "\n"));
-			return sum(numbers);
+		else if(string.contains(",") || string.contains("\n")) {
+			if(string.contains("\n")) {
+				string = string.replaceAll("\n",",");
+			}
+			String[] arr = splitNumbers(string);
+			return sum(arr);
 		}
 		return Integer.parseInt(string);
 	}
@@ -21,8 +20,9 @@ public class calculator {
 		return Integer.parseInt(number);
 	}
 
-	public static String[] splitNumbers(String numbers, String splitter) {
-		return numbers.split(splitter);
+	public static String[] splitNumbers(String n) {
+		String[] numbers = n.split(",");
+		return numbers;
 	}
 
 	private static int sum(String[] numbers){
