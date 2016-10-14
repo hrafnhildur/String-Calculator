@@ -46,4 +46,9 @@ public class calculatorTest {
 	public void testBigNumbers() {
 		assertEquals(6, calculator.add("1\n2,3,1001"));
 	}
+
+	@Test
+	public void testChangeDel() {
+		assertEquals(6, calculator.add("//\n,1\n2,3,1001"));
+	}
 }

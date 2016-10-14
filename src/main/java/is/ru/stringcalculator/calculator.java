@@ -3,6 +3,7 @@ package is.ru.stringcalculator;
 public class calculator {
 
 	public static int add(String string) {
+		String del = ",";
 		if(string.equals(" ")) {
 			return 0;
 		}
@@ -10,7 +11,14 @@ public class calculator {
 			if(string.contains("\n")) {
 				string = string.replaceAll("\n",",");
 			}
-			String[] arr = splitNumbers(string);
+			if(string.contains("//")) {
+				del = Character.toString(string.charAt(2));
+				string = string.replaceAll(",", del);
+				string = string.replaceAll("//", "");
+				string = string.replaceFirst(".", "");
+				string = string.replaceFirst(".", "");
+			}
+			String[] arr = splitNumbers(string, del);
 			for(String s : arr) {
 				if( toInt(s) < 0) {
 					noNegatives(arr);
@@ -26,8 +34,8 @@ public class calculator {
 		return Integer.parseInt(number);
 	}
 
-	public static String[] splitNumbers(String n) {
-		String[] numbers = n.split(",");
+	public static String[] splitNumbers(String n, String del) {
+		String[] numbers = n.split(del);
 		return numbers;
 	}
 
