@@ -11,9 +11,15 @@ public class calculator {
 				string = string.replaceAll("\n",",");
 			}
 			String[] arr = splitNumbers(string);
+			for(String s : arr) {
+				if( toInt(s) < 0) {
+					noNegatives(arr);
+					break;
+				}
+			}
 			return sum(arr);
 		}
-		return Integer.parseInt(string);
+		return toInt(string);
 	}
 
 	private static int toInt(String number){
@@ -31,6 +37,20 @@ public class calculator {
 		    total += toInt(number);
 		}
 		return total;
+	}
+
+	private static void noNegatives(String[] numbers) {
+		String badNums = "";
+		boolean neg = false;
+		for(String s : numbers) {
+			if(toInt(s) < 0) {
+				neg = true;
+				badNums += s + ",";
+			}
+		}
+		if(neg) {
+			throw new IllegalArgumentException("Negatives not allowed: " + badNums);
+		}
 	}
 
 }
